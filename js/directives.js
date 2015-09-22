@@ -90,13 +90,9 @@ angular.module('JSONedit', ['ui.sortable'])
         };
         scope.deleteKey = function(obj, key) {
             if (getType(obj) == "Object") {
-                if( confirm('Delete "'+key+'" and all it contains?') ) {
-                    delete obj[key];
-                }
+                delete obj[key];
             } else if (getType(obj) == "Array") {
-                if( confirm('Delete "'+obj[key]+'"?') ) {
-                    obj.splice(key, 1);
-                }
+                obj.splice(key, 1);
             } else {
                 console.error("object to delete from was " + obj);
             }
